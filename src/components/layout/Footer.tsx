@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Instagram, MapPin, Send } from 'lucide-react';
 
 const SOCIAL_LINKS = {
@@ -13,29 +12,38 @@ export default function Footer() {
     return (
         <footer className="bg-[var(--color-beige)] border-t border-[var(--color-border)]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                    {/* Logo & Brand */}
-                    <div className="flex flex-col items-center md:items-start">
-                        <Link href="/" className="mb-4">
-                            <Image
-                                src="/logo-new.png"
-                                alt="Arnas Collection"
-                                width={180}
-                                height={90}
-                                className="h-[60px] w-auto object-contain"
-                            />
-                        </Link>
-                        <p className="text-sm text-[var(--color-text-muted)] text-center md:text-left max-w-xs">
-                            Zarif ve modern tesettür modası
-                        </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    {/* Kurumsal Links */}
+                    <div className="text-center md:text-left">
+                        <h3 className="font-[var(--font-serif)] text-lg font-semibold text-[var(--color-dark-grey)] mb-4">
+                            Kurumsal
+                        </h3>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link
+                                    href="/hakkimizda"
+                                    className="text-[var(--color-text-muted)] hover:text-[var(--color-soft-gold)] text-sm transition-colors"
+                                >
+                                    Hakkımızda
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/iletisim"
+                                    className="text-[var(--color-text-muted)] hover:text-[var(--color-soft-gold)] text-sm transition-colors"
+                                >
+                                    İletişim
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
 
                     {/* Social Media Icons */}
-                    <div className="flex flex-col items-center">
+                    <div className="text-center md:text-right">
                         <h3 className="font-[var(--font-serif)] text-lg font-semibold text-[var(--color-dark-grey)] mb-4">
                             Bizi Takip Edin
                         </h3>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center justify-center md:justify-end space-x-4">
                             <a
                                 href={SOCIAL_LINKS.instagram}
                                 target="_blank"
