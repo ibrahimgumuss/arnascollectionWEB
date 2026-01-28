@@ -1,18 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, MapPin, Send } from 'lucide-react';
-
-const footerLinks = {
-    kurumsal: [
-        { label: 'Hakkımızda', href: '/hakkimizda' },
-        { label: 'İletişim', href: '/iletisim' },
-        { label: 'Gizlilik Politikası', href: '/gizlilik' },
-    ],
-    musteriHizmetleri: [
-        { label: 'Beden Tablosu', href: '/beden-tablosu' },
-        { label: 'Kargo Bilgisi', href: '/kargo' },
-        { label: 'Sıkça Sorulan Sorular', href: '/sss' },
-    ],
-};
 
 const SOCIAL_LINKS = {
     instagram: 'https://www.instagram.com/arnas_tesettur_toptan/',
@@ -25,47 +13,25 @@ export default function Footer() {
     return (
         <footer className="bg-[var(--color-beige)] border-t border-[var(--color-border)]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-                    {/* Kurumsal */}
-                    <div>
-                        <h3 className="font-[var(--font-serif)] text-lg font-semibold text-[var(--color-dark-grey)] mb-4">
-                            Kurumsal
-                        </h3>
-                        <ul className="space-y-3">
-                            {footerLinks.kurumsal.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-[var(--color-text-muted)] hover:text-[var(--color-soft-gold)] text-sm"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                    {/* Logo & Brand */}
+                    <div className="flex flex-col items-center md:items-start">
+                        <Link href="/" className="mb-4">
+                            <Image
+                                src="/logo-new.png"
+                                alt="Arnas Collection"
+                                width={180}
+                                height={90}
+                                className="h-[60px] w-auto object-contain"
+                            />
+                        </Link>
+                        <p className="text-sm text-[var(--color-text-muted)] text-center md:text-left max-w-xs">
+                            Zarif ve modern tesettür modası
+                        </p>
                     </div>
 
-                    {/* Müşteri Hizmetleri */}
-                    <div>
-                        <h3 className="font-[var(--font-serif)] text-lg font-semibold text-[var(--color-dark-grey)] mb-4">
-                            Müşteri Hizmetleri
-                        </h3>
-                        <ul className="space-y-3">
-                            {footerLinks.musteriHizmetleri.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-[var(--color-text-muted)] hover:text-[var(--color-soft-gold)] text-sm"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Bizi Takip Edin */}
-                    <div>
+                    {/* Social Media Icons */}
+                    <div className="flex flex-col items-center">
                         <h3 className="font-[var(--font-serif)] text-lg font-semibold text-[var(--color-dark-grey)] mb-4">
                             Bizi Takip Edin
                         </h3>
@@ -74,40 +40,40 @@ export default function Footer() {
                                 href={SOCIAL_LINKS.instagram}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#E4405F] hover:shadow-md"
+                                className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#E4405F] hover:shadow-lg transition-all duration-300"
                                 aria-label="Instagram"
                             >
-                                <Instagram size={20} />
+                                <Instagram size={24} />
                             </a>
                             <a
                                 href={SOCIAL_LINKS.telegram}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#0088cc] hover:shadow-md"
+                                className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#0088cc] hover:shadow-lg transition-all duration-300"
                                 aria-label="Telegram"
                             >
-                                <Send size={20} />
+                                <Send size={24} />
                             </a>
                             <a
                                 href={SOCIAL_LINKS.maps}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#EA4335] hover:shadow-md"
+                                className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#EA4335] hover:shadow-lg transition-all duration-300"
                                 aria-label="Konum"
                             >
-                                <MapPin size={20} />
+                                <MapPin size={24} />
                             </a>
                             <a
                                 href={SOCIAL_LINKS.whatsapp}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#25D366] hover:shadow-md"
+                                className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[var(--color-dark-grey)] hover:text-[#25D366] hover:shadow-lg transition-all duration-300"
                                 aria-label="WhatsApp"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
+                                    width="24"
+                                    height="24"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
                                 >
@@ -115,13 +81,10 @@ export default function Footer() {
                                 </svg>
                             </a>
                         </div>
-                        <p className="mt-4 text-sm text-[var(--color-text-muted)]">
-                            En son koleksiyonlar ve güncellemeler için bizi takip edin.
-                        </p>
                     </div>
                 </div>
 
-                {/* Telif Hakkı */}
+                {/* Copyright */}
                 <div className="mt-12 pt-8 border-t border-[var(--color-border)]">
                     <p className="text-center text-sm text-[var(--color-text-muted)]">
                         © {new Date().getFullYear()} Arnas Collection. Tüm hakları saklıdır.
